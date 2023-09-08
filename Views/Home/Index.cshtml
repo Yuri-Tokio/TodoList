@@ -1,7 +1,7 @@
 ﻿@model TodoViewModel
 
 <div class="row justify-content-center">
-    <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
+    <div class="col-xl-12 col-lg-8 col-md-8 col-sm-10">
         <table class="table">
             <thead>
                 <tr class="table-primary">
@@ -21,9 +21,9 @@
                         <td class="todos-column">@t.Description</td>
                         <td class="todos-column">@t.Status</td>
                         <td class="buttons-column">
-                            <input type="submit" class="btn btn-danger" value="Deletar" onClick="deleteTodo(@t.Id)" />
-                            <input type="submit" class="btn btn-primary" value="Atualizar" onClick="populateForm(@t.Id)" />
-                            <input type="submit" class="btn btn-primary" value="Concluir" onClick="doneForm(@t.Id)" />
+                            <input type="submit" class="btn btn-danger mb-1 mt-1" value="Deletar" onClick="deleteTodo(@t.Id)" />
+                            <input type="submit" class="btn btn-primary mb-1 mt-1" value="Atualizar" onClick="populateForm(@t.Id)" />
+                            <input type="submit" class="btn btn-success mb-1 mt-1" value="Concluir" onClick="doneForm(@t.Id)" />
                         </td>
 
                     </tr>
