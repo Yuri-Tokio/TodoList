@@ -45,7 +45,9 @@ public class HomeController : Controller
                                 new TodoItem
                                 {
                                     Id = reader.GetInt32(0),
-                                    Name = reader.GetString(1)
+                                    Name = reader.GetString(1),
+                                    Description = reader.GetString(2),
+                                    Status = reader.GetString(3)
                                 });
                         }
                     }
@@ -74,7 +76,7 @@ public class HomeController : Controller
             using (var tableCmd = con.CreateCommand())
             {
                 con.Open();
-                tableCmd.CommandText = $"INSERT INTO todo (name) VALUES ('{todo.Name}')";
+                tableCmd.CommandText = $"INSERT INTO todo (name, Description, Status) VALUES ('{todo.Name}', '{todo.Description}', '{todo.Status}')";
                 try
                 {
                     tableCmd.ExecuteNonQuery();
@@ -131,6 +133,8 @@ public class HomeController : Controller
                         reader.Read();
                         todo.Id = reader.GetInt32(0);
                         todo.Name = reader.GetString(1);
+                        todo.Description = reader.GetString(2);
+                        todo.Status = reader.GetString(3);
                     }
                     else
                     {
@@ -151,7 +155,7 @@ public class HomeController : Controller
             using (var tableCmd = con.CreateCommand())
             {
                 con.Open();
-                tableCmd.CommandText = $"UPDATE todo SET name = '{todo.Name}' WHERE Id = '{todo.Id}'";
+                tableCmd.CommandText = $"UPDATE todo SET name = '{todo.Name}', Description = '{todo.Description}', Status = '{todo.Status}' WHERE Id = '{todo.Id}'";
                 try
                 {
                     tableCmd.ExecuteNonQuery();

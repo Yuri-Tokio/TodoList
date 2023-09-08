@@ -5,7 +5,7 @@
 
     <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
-            <label asp-for="Todo.Name" class="form-label"></label>
+            <label asp-for="Todo.Name" class="form-label">Título</label>
             <input asp-for="Todo.Id" type="hidden" class="form-control" />
             <input asp-for="Todo.Name" class="form-control" />
             <span asp-validation-for="Todo.Name" class="text-danger"></span>
@@ -13,8 +13,24 @@
     </div>
 
     <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3">
+            <label asp-for="Todo.Description" class="form-label">Descrição</label>
+            <input asp-for="Todo.Description" class="form-control" />
+            <span asp-validation-for="Todo.Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3">
+            <label asp-for="Todo.Status" class="form-label">Status</label>
+            <input asp-for="Todo.Status" class="form-control" />
+            <span asp-validation-for="Todo.Status" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10 mt-3 mb-5">
-            <input type="submit" id="form-button" class="btn btn-success" value="Add Todo" />
+            <input type="submit" id="form-button" class="btn btn-success" value="Adicionar tarefa" />
         </div>
     </div>
 </form>

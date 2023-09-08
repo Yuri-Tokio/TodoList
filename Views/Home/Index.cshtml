@@ -6,7 +6,9 @@
             <thead>
                 <tr class="table-primary">
                     <th scope="col">Id</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Status</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -16,9 +18,11 @@
                     <tr>
                         <th class="todos-column" scope="row">@t.Id</th>
                         <td class="todos-column">@t.Name</td>
+                        <td class="todos-column">@t.Description</td>
+                        <td class="todos-column">@t.Status</td>
                         <td class="buttons-column">
-                            <input type="submit" class="btn btn-danger" value="Delete" onClick="deleteTodo(@t.Id)" />
-                            <input type="submit" class="btn btn-primary" value="Update" onClick="populateForm(@t.Id)" />
+                            <input type="submit" class="btn btn-danger" value="Deletar" onClick="deleteTodo(@t.Id)" />
+                            <input type="submit" class="btn btn-primary" value="Atualizar" onClick="populateForm(@t.Id)" />
                         </td>
 
                     </tr>
