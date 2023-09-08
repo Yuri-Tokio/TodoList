@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace TodoList.Models
 {
-    public class Todo
+    public class TodoItem
     {
         public string Id { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
         public string Time { get; set; }
