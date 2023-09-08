@@ -90,6 +90,13 @@ public class HomeController : Controller
         return Redirect("https://localhost:7010/");
     }
 
+    [HttpGet]
+    public JsonResult PopulateForm(int id)
+    {
+        var todo = GetById(id);
+        return Json(todo);
+    }
+
     [HttpPost]
     public JsonResult Delete(int id)
     {
@@ -107,11 +114,30 @@ public class HomeController : Controller
         return Json(new { });
     }
 
-    [HttpGet]
-    public JsonResult PopulateForm(int id)
+
+    
+    [HttpPut]
+    public RedirectResult doneForm(TodoItem todo)
     {
-        var todo = GetById(id);
-        return Json(todo);
+        using (SqliteConnection con =
+               new SqliteConnection("Data Source=db.sqlite"))
+        {
+            using (var tableCmd = con.CreateCommand())
+            {
+                con.Open();
+                tableCmd.CommandText = $"UPDATE todo SET Done = '1' WHERE Id = '{todo.Id}'";
+                try
+                {
+                    tableCmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        return Redirect("https://localhost:7010/");
     }
 
     internal TodoItem GetById(int id)
@@ -169,5 +195,7 @@ public class HomeController : Controller
 
         return Redirect("https://localhost:7010/");
     }
+
+    
 
 }

@@ -17,3 +17,8 @@ body {
   margin-bottom: 60px;
   background-color: #a6a6a6;
 }
+
+.tasklist-done {
+  text-decoration: line-through;
+  color: rgb(240, 98, 146);
+}
